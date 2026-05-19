@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <title>Smart IoT Control Dashboard</title>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <script
+    src="/socket.io/socket.io.js"
+    defer
+  ></script>
+
+  <script
+    src="app.js"
+    defer
+  ></script>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+
+    <h1>Smart Environment IoT Dashboard</h1>
+
+    <div class="auth">
+
+      <input
+        id="username"
+        placeholder="Username"
+      />
+
+      <input
+        id="password"
+        type="password"
+        placeholder="Password"
+      />
+
+      <button id="login">
+        Login
+      </button>
+
+      <button
+        id="logout"
+        style="display:none;"
+      >
+        Logout
+      </button>
+
+      <span id="auto-badge">
+        Auto: OFF
+      </span>
+
+    </div>
+
+  </header>
+
+  <!-- Main -->
+  <main>
+
+    <!-- Device Controls -->
+    <section>
+
+      <h2>Device Controls</h2>
+
+      <div class="grid">
+
+        <!-- Fan -->
+        <div
+          class="card"
+          data-device="fan"
+        >
+
+          <h3>Fan</h3>
+
+          <button class="toggle btn-off">
+            Turn ON
+          </button>
+
+          <p id="fan-state">
+            OFF
+          </p>
+
+        </div>
+
+        <!-- Bulb -->
+        <div
+          class="card"
+          data-device="bulb"
+        >
+
+          <h3>Bulb</h3>
+
+          <button class="toggle btn-off">
+            Turn ON
+          </button>
+
+          <p id="bulb-state">
+            OFF
+          </p>
+
+        </div>
+
+        <!-- AC -->
+        <div
+          class="card"
+          data-device="ac"
+        >
+
+          <h3>AC</h3>
+
+          <button class="toggle btn-off">
+            Turn ON
+          </button>
+
+          <p id="ac-state">
+            OFF
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- Automation Settings -->
+      <div class="card settings">
+
+        <h3>Automation Settings</h3>
+
+        <!-- Temp ON -->
+        <div class="setting-row">
+
+          <label>
+            Turn AC ON if temp &gt;
+          </label>
+
+          <input
+            id="set-temp-on"
+            type="number"
+            step="0.1"
+          />
+
+          <span>°C</span>
+
+        </div>
+
+        <!-- Temp OFF -->
+        <div class="setting-row">
+
+          <label>
+            Turn AC OFF if temp &lt;
+          </label>
+
+          <input
+            id="set-temp-off"
+            type="number"
+            step="0.1"
+          />
+
+          <span>°C</span>
+
+        </div>
+
+        <!-- Automation -->
+        <div class="setting-row toggle-row">
+
+          <label>
+
+            <input
+              id="set-automation-enabled"
+              type="checkbox"
+            />
+
+            Enable Automation
+
+          </label>
+
+        </div>
+
+        <!-- Disable -->
+        <div class="setting-row">
+
+          <input
+            id="temp-disable-mins"
+            type="number"
+            min="1"
+            max="1440"
+            placeholder="minutes"
+          />
+
+          <button id="btn-temp-disable">
+            Disable for (mins)
+          </button>
+
+        </div>
+
+        <!-- Save -->
+        <div class="setting-row">
+
+          <button id="save-settings">
+            Save Settings
+          </button>
+
+          <span id="settings-msg"></span>
+
+        </div>
+
+        <!-- Countdown -->
+        <div class="setting-row">
+
+          <small
+            id="reEnable-countdown"
+            style="color:#b91c1c;font-weight:700"
+          ></small>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Sensor Data -->
+    <section>
+
+      <h2>Sensor Data</h2>
+
+      <div class="sensor">
+
+        <p>
+          🌡️ Temperature:
+          <span id="temp">--</span>
+          °C
+        </p>
+
+        <p>
+          💧 Humidity:
+          <span id="hum">--</span>
+          %
+        </p>
+
+        <p>
+          🚶 Motion:
+          <span id="motion">--</span>
+        </p>
+
+        <p>
+          ⏰ Last Update:
+          <span id="time">--</span>
+        </p>
+
+      </div>
+
+      <!-- Activity Log -->
+      <h3>Activity Log</h3>
+
+      <div
+        id="log"
+        class="log"
+      ></div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+body{font-family:'Segoe UI',Arial,sans-serif;
+  background:#eef2ff;
+  margin:0;
+  color:#1e293b}
+header{background:linear-gradient(90deg,#2563eb,#1d4ed8);
+  color:#fff;
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center}
+header h1{margin:0;
+  font-size:22px}
+.auth input{padding:6px;
+  border-radius:5px;
+  border:1px solid #cbd5e1;
+  margin-right:6px}
+.auth button{padding:6px 10px;
+  border-radius:5px;
+  background:#fff;
+  color:#2563eb;
+  border:none;
+  cursor:pointer}
+#auto-badge{background:#e5e7eb;
+  color:#111;
+  padding:6px 8px;
+  border-radius:8px;
+  font-weight:600;
+  margin-left:10px}
+main{display:grid;
+  grid-template-columns:1fr 1fr;
+  padding:20px;gap:20px}
+h2{color:#1e3a8a}
+.grid{display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.card{background:#fff;border-radius:10px;
+  padding:12px;text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+  transition:.25s}
+.card:hover{transform:translateY(-2px)}
+.card h3{margin:0 0 10px}
+button.toggle{min-width:120px;
+  padding:10px 14px;
+  border-radius:6px;
+  border:none;cursor:pointer;
+  transition:all .3s}
+.toggle.btn-off{background:#2563eb;
+  color:#fff;
+  box-shadow:0 4px 10px rgba(37,99,235,0.3)}
+.toggle.btn-on{background:#16a34a;
+  color:#fff;
+  box-shadow:0 4px 16px rgba(22,163,74,0.4);
+  transform:translateY(-1px)}
+.settings{margin-top:20px;
+  background:#fff;padding:16px;
+  border-radius:10px}
+.setting-row{display:flex;
+  align-items:center;gap:8px;
+  margin:8px 0;
+  flex-wrap:wrap}
+#settings-msg{font-weight:600;
+  color:#064e3b}
+#reEnable-countdown{display:block;
+  margin-top:6px}
+.sensor,.log{background:#fff;
+  padding:12px;
+  border-radius:10px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.05)}
+.log{margin-top:10px;
+  max-height:200px;
+  overflow-y:auto;
+  font-family:monospace;
+  background:#111827;
+  color:#e0e7ff;
+  font-size:13px;
+  padding:10px;
+  border-radius:6px}
+input[type=number]{width:80px;
+  padding:5px;
+  border-radius:5px;
+  border:1px solid #cbd5e1}
+@media (max-width:768px){main{grid-template-columns:1fr}}
